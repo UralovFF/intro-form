@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,regular,500,600,700,800,900,500italic");
 
 *{
     margin: 0;
@@ -13,6 +13,7 @@ a{
 
 input{
     cursor: pointer;
+    border: none;
 }
 
 button{
@@ -21,9 +22,9 @@ button{
     transition: all 0.2s;
 }
 
-html, body{
-    height: 100%;
-
+body{
+    height: 100vh;
+    
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     
@@ -101,20 +102,39 @@ html, body{
     border-radius: 10px;
 }
 
-.box-form__body .questionnaire{
-    margin-bottom: 20px;
+.questionnaire{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 }
 
+.questionnaire__item{
+    display: flex;
+    flex-direction: column;
+}
+
 .questionnaire__input{
     height: 56px;
-    padding-left: 32px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 27px;
     
     border: 1px solid #dedede;
     border-radius: 5px;
     background: #fff;
+    
+    overflow: hidden;
+}
+
+.questionnaire__input input{
+    width: 100%;
+    height: 100%;
+    
+    padding-left: 32px;
+    outline: none;
     
     color: #3d3b48;
     font-size: 14px;
@@ -123,14 +143,24 @@ html, body{
     letter-spacing: 0.02em;
 }
 
-.questionnaire__input:focus{
-    border: none;
-    outline: #5e54a4 solid 1px;
-}
-
-.questionnaire__input::placeholder{
+.questionnaire__input input::placeholder{
     color: #3d3b48;
     opacity: 0.75;
+}
+
+.error-icon{
+    display: none;
+}
+
+.input__error{
+    display: none;
+    margin-top: 6px;
+
+    text-align: right;
+    font-style: italic;
+
+    color: #ff7979;
+    font-size: 11px;
 }
 
 .box-form__body__btn{
@@ -161,6 +191,10 @@ html, body{
 .terms a{
     font-weight: 700;
     color: #ff7979;
+}
+
+.active{
+    display: block;
 }
 
 @media (max-width: 1024px) {
@@ -208,6 +242,10 @@ html, body{
     
     .questionnaire__input{
         padding-left: 19.5px;
+    }
+
+    .questionnaire__input input{
+        padding-left: 32px;
     }
     
     .terms{
